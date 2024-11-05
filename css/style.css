@@ -17,6 +17,7 @@
 }
 
 .board {
+  position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -24,6 +25,7 @@
 }
 
 #container {
+  position: fixed;
   background-color: black;
   height: 400px;
   width: 400px;
@@ -41,4 +43,25 @@
   justify-content: center;
   align-items: center;
   font-size: 120px;
+}
+
+#congrats {
+  position: fixed;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reset {
+  padding: 10px;
+  width: 200px;
+}
+
+#resetGameButton {
+  position: fixed;
+  bottom: 70px;
+  padding: 10px;
+  width: 220px;
 }
