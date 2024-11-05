@@ -1,15 +1,15 @@
 const game = (function () {
   let board = Array(9).fill(0);
-  board[1] = "X";
-  board[2] = "O";
   let player1Turn = true;
   let player1Score = 0;
   let player2Score = 0;
+  const container = document.getElementById("container");
   const incrementPlayer1 = () => player1Score++;
   const incrementPlayer2 = () => player2Score++;
-  const updateBoard = () => {
-    const index = this.id;
+  const updateBoard = (index) => {
+    if (board[index] != 0) return;
     board[index] = player1Turn ? "X" : "O";
+    player1Turn = !player1Turn;
     render();
   };
   const resetGame = () => {
@@ -19,7 +19,7 @@ const game = (function () {
   };
 
   const render = () => {
-    const container = document.getElementById("container");
+    container.innerHTML = "";
     let squares = [];
     board.forEach(function (square, index) {
       let squareElement = document.createElement("div");
@@ -32,7 +32,9 @@ const game = (function () {
         squareElement.textContent = "X";
         squareElement.style.color = "red";
       }
-      squareElement.addEventListener("click", updateBoard.bind(squareElement));
+      squareElement.addEventListener("click", function () {
+        return updateBoard(index);
+      });
       container.appendChild(squareElement);
       squares.push(squareElement);
     });
