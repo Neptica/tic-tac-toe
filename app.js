@@ -24,6 +24,7 @@ const game = (function () {
     player2Score = 0;
     player1Start = player1Turn = true;
     won = 0;
+    congrats.innerHTML = "Game Has Been Reset";
     render();
   };
 
